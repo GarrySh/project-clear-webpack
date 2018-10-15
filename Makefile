@@ -18,6 +18,9 @@ build:
 	yarn run build
 	# chmod +x dist/bin/*
 
+start:
+	yarn run start
+
 dev:
 	rm -rf dist
 	yarn run dev

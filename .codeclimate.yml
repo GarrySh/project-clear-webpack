@@ -1,16 +1,16 @@
-version: "2"
+version: '2'
 
 plugins:
   duplication:
     enabled: true
     config:
       languages:
-      - javascript
+        - 'javascript'
   fixme:
     enabled: true
   eslint:
     enabled: true
 
 exclude_patterns:
-- "dist/"
-- "node_modules/"
+  - 'dist/'
+  - 'node_modules/'

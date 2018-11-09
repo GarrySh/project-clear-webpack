@@ -4,8 +4,8 @@
   "description": "",
   "main": "dist/index.js",
   "engines": {
-    "node": "10",
-    "yarn": ">=1.6"
+    "node": ">=10.13",
+    "yarn": ">=1"
   },
   "scripts": {
     "test": "jest",

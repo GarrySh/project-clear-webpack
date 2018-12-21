@@ -16,7 +16,6 @@ test.watch:
 build:
 	rm -rf dist
 	yarn run build
-	# chmod +x dist/bin/*
 
 start:
 	yarn run start

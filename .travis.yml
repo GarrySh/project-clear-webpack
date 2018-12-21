@@ -3,7 +3,7 @@ env:
     - CC_TEST_REPORTER_ID=
 language: node_js
 node_js:
-  - node
+  - lts/*
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter

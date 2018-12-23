@@ -12,6 +12,7 @@ parserOptions:
 
 extends:
   - 'airbnb'
+  - 'prettier'
   - 'plugin:jest/recommended'
 
 rules:

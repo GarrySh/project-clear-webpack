@@ -4,65 +4,65 @@ import precss from 'precss';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-export default () => ({
+export default {
   entry: {
-    app: ['./src/index.js'],
-    // vendor: ['jquery', 'jquery-ujs', 'popper.js', 'bootstrap'],
+    app: ['./src/scripts/index.js'],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
-    publicPath: '/',
   },
   mode: process.env.NODE_ENV || 'development',
-  // devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist',
-    port: 9000,
+    contentBase: './src/public',
+    port: 3000,
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      use: 'babel-loader',
-    }, {
-      test: /\.(css|scss)$/,
-      use: [{
-        loader: 'style-loader',
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
       },
       {
-        loader: 'css-loader',
-        options: {
-          minimize: process.env.NODE_ENV === 'production',
-        },
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              publicPath: './src/public',
+            },
+          },
+        ],
       },
       {
-        loader: 'postcss-loader',
-        options: {
-          plugins: () => [precss, autoprefixer],
-        },
+        test: /\.pug$/,
+        use: 'pug-loader',
       },
       {
-        loader: 'sass-loader',
-      }],
-    }],
+        test: /\.(styl|stylus)$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [precss, autoprefixer],
+            },
+          },
+          {
+            loader: 'stylus-loader',
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
-    new HtmlWebpackPlugin({ template: './public/index.html' }),
-    // new webpack.ProvidePlugin({
-    //   $: 'jquery',
-    //   jQuery: 'jquery',
-    //   'window.jQuery': 'jquery',
-    //   Popper: ['popper.js', 'default'],
-    // }),
-    // new webpack.optimize.SplitChunksPlugin({
-    //   name: 'common',
-    //   filename: 'vendor.bundle.js',
-    //   minChunks: Infinity,
-    // }),
-    // new webpack.optimize.MinChunkSizePlugin({
-    //   minChunkSize: 10000, // Minimum number of characters
-    // }),
+    new HtmlWebpackPlugin({ template: './src/pages/index.pug', inject: false }),
   ],
-});
+};

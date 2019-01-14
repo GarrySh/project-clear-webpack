@@ -18,14 +18,7 @@ build:
 	yarn run build
 
 start:
-	yarn run start
-
-dev:
-	rm -rf dist
-	yarn run dev
-
-dev.watch:
-	yarn webpack-dev-server --open
+	yarn start --open
 
 clear:
 	rm -rf dist

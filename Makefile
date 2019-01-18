@@ -14,11 +14,10 @@ test.watch:
 	yarn run test --watch
 
 build:
-	rm -rf dist
 	yarn run build
 
 start:
-	yarn start --open
+	yarn run start
 
 clear:
 	rm -rf dist

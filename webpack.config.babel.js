@@ -2,7 +2,6 @@ import autoprefixer from 'autoprefixer';
 import path from 'path';
 import precss from 'precss';
 import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   entry: {
@@ -61,8 +60,5 @@ export default {
       },
     ],
   },
-  plugins: [
-    new webpack.NoEmitOnErrorsPlugin(),
-    new HtmlWebpackPlugin({ template: './src/pages/index.pug', inject: false }),
-  ],
+  plugins: [new webpack.NoEmitOnErrorsPlugin()],
 };

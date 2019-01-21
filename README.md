@@ -1,12 +1,19 @@
 # Frontend Boilerplate
 
-Boilerplate for front-end projects
+Boilerplate new for front-end projects
+
+## Requirements
+
+- Node.JS, tested with version 10.13
+- Yarn
 
 ## Setup
 
 ```sh
-git clone --depth 1 https://github.com/GarrySh/boilerplate-frontend.git new-project
-cd new-project
+git clone https://github.com/GarrySh/boilerplate-frontend.git project-name
+cd project-name
+rm -rf .git
+git init
 make install
 ```
 
@@ -16,8 +23,14 @@ make install
 make start
 ```
 
-## Compile a project
+## Build a production version in 'dist' folder
 
 ```sh
 make build
+```
+
+## Compile and deploy to github-pages
+
+```sh
+make deploy
 ```

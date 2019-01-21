@@ -19,6 +19,9 @@ build:
 start:
 	yarn run start
 
+deploy:
+	yarn run deploy
+
 clear:
 	rm -rf dist
 	rm -rf node_modules
